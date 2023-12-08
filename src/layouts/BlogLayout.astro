@@ -1,0 +1,42 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+const { frontmatter } = Astro.props;
+---
+
+<!-- Necesitamos crear un layout para mostrar blogs -->
+<html>
+    <body class="bg-950 flex flex-col min-h-screen">
+        <Header />
+        <section class="flex justify-center">
+            <div class="w-1/2">
+                <h1 class="text-4xl text-200">{frontmatter.title}</h1>
+                <p class="mt-3 text-400 text-xs">{frontmatter.date}</p>
+                <div class="flex justify-start gap-1 items-center">
+                    <p class="text-400 font-bold">{frontmatter.author}</p>
+                    <p class="text-400 text-xs">{frontmatter.location}</p>
+                </div>
+            </div>
+        </section>
+        <section class="flex-grow mt-3 flex flex-col w-full">
+            <div class="w-full flex justify-center">
+                <div class="text-200 bg-800 w-1/2 p-5 shadow-md rounded-lg">
+                    <slot />
+                </div>
+            </div>
+        </section>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .flex-grow {
+        flex: 1;
+    }
+</style>

@@ -1,0 +1,33 @@
+---
+interface Props {
+	title: string;
+	date: string;
+	body: string;
+	href: string;
+	tag: string;
+}
+
+const { href, date, tag, title, body } = Astro.props;
+---
+
+<div class="relative w-full group rounded overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+    <!-- Icono de bookmark -->
+    <div class="absolute -top-2 right-2 z-10 opacity-0 transition-opacity group-hover:opacity-100">
+        <img class="w-8 h-8 object-cover" src="../../public/bookmark.svg" alt="Bookmark icon">
+    </div>
+    
+    <a href={href} class="block">
+        <div class="bg-800 rounded-xl px-6 py-4 relative">
+            <div class="flex items-center justify-start mb-2">
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    #{tag}
+                </span>
+            </div>
+            <div class="text-300 font-bold text-xl mb-2">
+                {title}
+                <p class="text-500 text-base">{date}</p>
+            </div>
+            <p class="text-300 text-base">{body}</p>
+        </div>
+    </a>
+</div>

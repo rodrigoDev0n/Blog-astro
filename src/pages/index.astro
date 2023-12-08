@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+/* TODO: Obtener lista de articulos */
+const posts = await Astro.glob("./blogs/*.md");
+
+---
+
+<Layout title="Blog creado con tailwind css.">
+	<!-- Agregar componente referente a la pagina :D -->
+	<main class="flex flex-col items-center gap-3">
+		<section class="flex flex-col items-center gap-3">
+			<h1 class="text-3xl font-bold text-50">Hola!👋</h1>
+
+			<p class="text-2xl text-200">
+				Bienvenido a mi blog donde comparto apuntes de programación.
+			</p>
+		</section>
+
+		<div class="flex flex-col items-center gap-3 w-full">
+			{
+				posts.map((post) => (
+					<Card
+						tag={post.frontmatter.tag}
+						title={post.frontmatter.title}
+						date={post.frontmatter.date}
+						body={post.frontmatter.description}
+						href={post.url}
+					/>
+				))
+			}
+		</div>
+	</main>
+</Layout>
