@@ -24,11 +24,8 @@ Este blog es una demostración de Astro. 🚀
 <div class="mt-4 bg-500 rounded-lg shadow-md">
 
 ```javascript
-
     // Este es mi nuevo post creado con markdown y astro :D
     console.log('Hello, world! 👋');
-
-
 
 ``````
 </div>

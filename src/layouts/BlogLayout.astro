@@ -8,7 +8,7 @@ const { frontmatter } = Astro.props;
 <html>
     <body class="bg-950 flex flex-col min-h-screen">
         <Header />
-        <section class="flex justify-center">
+        <section id="section-title" class="flex justify-center">
             <div class="w-1/2">
                 <h1 class="text-4xl text-200">{frontmatter.title}</h1>
                 <p class="mt-3 text-400 text-xs">{frontmatter.date}</p>
@@ -34,6 +34,10 @@ const { frontmatter } = Astro.props;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+    }
+
+    #section-title {
+        margin-top: 70px;
     }
 
     .flex-grow {
